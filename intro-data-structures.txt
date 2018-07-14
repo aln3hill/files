@@ -1,0 +1,71 @@
+1. A line of people at an amusement park ride.
+
+The line is composed of members, represented as strings.
+There is a front to the line, as well as a back.
+When someone enters the line, place them at the end.
+People may leave the line whenever they see fit, and those behind them take their place.
+Given the above real-world information, use an array data structure to code the following solution.
+
+a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+let line = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+function arrayInput(array){
+  return array;
+}
+
+b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+function addPersonToLine(array){
+  array.push("Mary");
+  return array;
+ }
+
+c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+	
+function findJosh(array){
+  let index = array.indexOf("Josh");
+  return index;
+}
+
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+function findEmily(array){
+  let index;
+  
+  if (array.indexOf("Emily") === -1){
+    return "Emily is not in the queue";
+  }
+  else {
+    index = array.indexOf("Emily");
+    return index;
+  }
+}
+
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+
+function cutTheLine(array){
+  let index = array.indexOf("Ava")
+  
+  array.splice(index, 0, "Melissa");
+  return array;
+}h
+
+f) If Patrick wants to leave the line, how would you delete him from the array?
+
+function leaveTheLine(array){
+  let index = array.indexOf("Patrick");
+  array.splice(index, 1);
+  return array;
+}
+
+
+2. Provide another real-world example that you can model using a data structure.
+
+Many companies have an employee policy saying that when they need to fire people, they fire the last ones in. This is the Last in First out principle (LiFo),
+which is the same way that stacks are organised. 
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+There are only a limited amount of operations that can be done on a stack. These are push and pop (add and delete). You can't examine, add or remove an element in the middle of the stack. 
