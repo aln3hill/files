@@ -1,0 +1,71 @@
+1. What is the main difference between a stack and a queue?
+
+The main difference is how they remove items from their structure. With a stack, the last item added is being removed first while with a queue the first item added is being removed first. 
+
+
+2. What are the similarities between stacks and queues?
+
+The similarity between the two structures is that they are adding on items the same way, by adding it onto the previously added item. 
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. 
+Which data structure would you use for each option and why?
+
+
+REDO - LIFO Stack
+
+UNDO - LIFO Stack 
+
+I would be using a Stack for both. In the operation UNDO, the last word/sign added to the page is being removed. 
+In REDO also the last added item to the REDO stack is being added to the page again. Both of these operations are LIFO. 
+
+
+PROGRAMMING QUESTIONS
+
+1. 
+
+function revertString(string){
+  let myStack = string.split('');
+  let length = myStack.length;
+  let temp = [];
+  for (let i = 0; i < length; i++){
+    temp.push(myStack.pop());
+  }
+  let reverted = temp.join('');
+  return reverted;
+}
+
+console.log(revertString('bloc!'));
+
+2.
+
+
+CLASS Stack
+ FUNCTION pop(queue)
+   
+   FOR each element in queue
+	CALL stack.shift returning element
+        IF element is last element in queue
+           THEN return element
+        ELSE
+           CALL stack.push with element to add to the back of the queue
+   END FOR
+   
+ END FUNCTION
+END CLASS
+
+
+3.
+
+CLASS QUEUE
+ INIT array
+ FUNCTION enqueue(element)
+   CALL queue.push with element
+   
+ END FUNCTION
+
+
+
+ FUNCTION dequeue
+   CALL queue.shift and return element
+ END FUNCTION
+END CLASS
