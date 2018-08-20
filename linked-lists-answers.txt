@@ -1,0 +1,95 @@
+1. What are some pros and cons of using linked lists instead of arrays?
+
+The pros of linked lists are that they are more flexible with memory and do not require a big chunk of memory spots as arrays do. Since linked lists stores the address to the next node, 
+the memory spots do not need to be next to each other. This is great and makes the space complexity of linked lists much less than arrays, however, it makes the time complexity worse.
+If you know the index of an element you want to retrieve in an array, the the program can directly go and fetch the element on that specific index. With linked lists, it works differently. Linked lists do not have indexes 
+When searching for an element in a linked list, you need to start at the head node and then look through the whole list until you find the node you are looking for. if you are lucky the node is close by, but in the worst 
+case you need to look through the whole list. 
+
+2. Come up with a real world example of a linked list.
+
+An example of a linked list in the real world could be like going on a scavanger hunt. You start with the first clue, which have a pinter to the second clue, and moves on like this until you
+have found the treasure. The only way to find the treasure is to go through all these clues, there is no shortcut. This is how a linked list works too, we don't know where our element we
+re looking for is stored so we must go through all nodes (clues) in order to find it. 
+
+
+PROGRAMMING QUESTIONS
+
+1. 
+
+The code doesn't check if the current.next is the last node in the linked list or not before adding it to the list.  
+
+FUNCTION push(element)
+CREATE node
+SET node.value TO element
+SET node.next TO null
+
+ IF the head node does not exist
+   THEN SET head to node
+ ELSE 
+   SET node to head
+   WHILE node exists AND NOT(node.next = null)
+     SET node to node.next
+   END WHILE
+   SET node.next to node
+ }
+}
+
+2. 
+Given an unsorted singly linked list, remove all duplicates from the linked list.
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
+
+
+This challenge can be solved in different ways, however, I have chosen to solve it by using two loops. 
+
+
+FUNCTION getNode() {
+	return this.node
+}
+
+FUNCTION removeDuplicates(headNode)
+
+   REMOVE node = {
+   value: element,
+   next: element.next.next
+ }
+
+ 
+  SET tempNode to headNode
+  WHILE tempNode exists 
+    WHILE tempNode.next exists
+      IF tempNode = tempNode.next
+	REMOVE tempNode
+    END WHILE
+    SET tempNode to tempNode.next
+  END WHILE
+  RETURN headNode
+
+END FUNCTION
+
+
+3.
+Given an unsorted singly linked list, reverse it.
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
+
+I will solve this by flipping the pointer between the nodes the other direction. 
+
+function reverseList(headNode)
+  IF headNode is null
+    RETURN null
+  INIT VAR prev = null
+  WHILE headNode.next exists
+    INIT VAR next = headNode.next
+    headNode.next is prev
+    prev = headNode
+    headNode = next
+  END WHILE
+  head.next = prev
+  RETURN prev
+
+END FUNCTION
+
